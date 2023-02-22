@@ -1,0 +1,7 @@
+﻿  LoginSystem.c
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(66,56): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[50]'
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(66,38): warning C4024: 'fgets': different types for formal and actual parameter 1
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(67,56): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[50]'
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(67,38): warning C4024: 'fgets': different types for formal and actual parameter 1
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(69,60): warning C4047: '!=': 'size_t' differs in levels of indirection from 'void *'
+  Library_Management_System.vcxproj -> C:\Users\Admin\source\repos\Library_Management_System\x64\Debug\Library_Management_System.exe

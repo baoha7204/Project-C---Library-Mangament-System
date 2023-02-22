@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Account">
+      <UniqueIdentifier>{9918b04f-1abf-4230-8ec7-c47bdbb6d3b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Student">
+      <UniqueIdentifier>{91226d2d-7998-4df0-b474-c05cd04c8c8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Librarian">
+      <UniqueIdentifier>{751da2c0-4325-46b1-bc6d-0ab54de6a21d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Date">
+      <UniqueIdentifier>{45e4a811-7406-46bd-beec-0d0d3214b069}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Book">
+      <UniqueIdentifier>{8a5e72b3-6dbf-4a47-81f2-b6ec75a23b69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Menu">
+      <UniqueIdentifier>{9140d6ef-7903-4020-bb8c-ea30dced9916}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\LoginSystem">
+      <UniqueIdentifier>{851780c5-dd9c-4409-b478-713ee638559c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="define.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Account.h">
+      <Filter>Resource Files\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountDatabase.h">
+      <Filter>Resource Files\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="Book.h">
+      <Filter>Resource Files\Book</Filter>
+    </ClInclude>
+    <ClInclude Include="BookDatabase.h">
+      <Filter>Resource Files\Book</Filter>
+    </ClInclude>
+    <ClInclude Include="Student.h">
+      <Filter>Resource Files\Student</Filter>
+    </ClInclude>
+    <ClInclude Include="StudentDatabase.h">
+      <Filter>Resource Files\Student</Filter>
+    </ClInclude>
+    <ClInclude Include="Date.h">
+      <Filter>Resource Files\Date</Filter>
+    </ClInclude>
+    <ClInclude Include="Librarian.h">
+      <Filter>Resource Files\Librarian</Filter>
+    </ClInclude>
+    <ClInclude Include="StudentMenu.h">
+      <Filter>Resource Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="LibrarianMenu.h">
+      <Filter>Resource Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginSystem.h">
+      <Filter>Resource Files\LoginSystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Book.c">
+      <Filter>Resource Files\Book</Filter>
+    </ClCompile>
+    <ClCompile Include="BookDatabase.c">
+      <Filter>Resource Files\Book</Filter>
+    </ClCompile>
+    <ClCompile Include="AccountDatabase.c">
+      <Filter>Resource Files\Account</Filter>
+    </ClCompile>
+    <ClCompile Include="Librarian.c">
+      <Filter>Resource Files\Librarian</Filter>
+    </ClCompile>
+    <ClCompile Include="Student.c">
+      <Filter>Resource Files\Student</Filter>
+    </ClCompile>
+    <ClCompile Include="StudentDatabase.c">
+      <Filter>Resource Files\Student</Filter>
+    </ClCompile>
+    <ClCompile Include="StudentMenu.c">
+      <Filter>Resource Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="LibrarianMenu.c">
+      <Filter>Resource Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginSystem.c">
+      <Filter>Resource Files\LoginSystem</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
