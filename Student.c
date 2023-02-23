@@ -5,12 +5,12 @@
 #include "Book.h"
 #include "Student.h"
 
-void display_student(Student s) {
-	printf("Name: %s\n", s.name);
-	printf("ID: %s\n", s.ID);
-	printf("Date of birth: %d/%d/%d\n", s.date_Of_Birth.day, s.date_Of_Birth.month, s.date_Of_Birth.year);
-	printf("ISBN issued book: %lld\n", s.issuedBookISBN);
-	printf("Fine: %.2lf\n", s.fine);
+void display_student(Student* s) {
+	printf("Name: %s\n", s->name);
+	printf("ID: %s\n", s->ID);
+	printf("Date of birth: %d/%d/%d\n", s->date_Of_Birth.day, s->date_Of_Birth.month, s->date_Of_Birth.year);
+	printf("ISBN issued book: %lld\n", s->issuedBookISBN);
+	printf("Fine: %.2lf\n", s->fine);
 }
 
 void modify_student(Student* s) {
@@ -110,9 +110,10 @@ void return_book_issue(Student* s) {
 				if (issued_book.status == 2) {
 					found = 1;
 					printf("Return the book...\n");
-					// set Book -> available, Student ISBN -> 0
-					set_status_available(&issued_book);
+					// set Student ISBN -> 0
 					s->issuedBookISBN = 0;
+					// set Book -> available
+					set_status_available(&issued_book);
 					// overwrite the book in Book database
 					fseek(f, -1 * sizeof(Book), SEEK_CUR);
 					fwrite(&issued_book, sizeof(Book), 1, f);

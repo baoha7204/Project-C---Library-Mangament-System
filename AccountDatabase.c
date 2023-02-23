@@ -15,6 +15,18 @@ void display_account(Account a) {
 	(a.role == 1) ? printf("Student\n") : printf("Librarian\n");
 }
 
+void update_account(Account a, int pos) {
+	FILE* f = fopen(ACCOUNT_DIR, "r+");
+	if (f == NULL) {
+		fprintf(stderr, "Error opening file.");
+		exit(EXIT_FAILURE);
+	}
+	else {
+		fseek(f, pos, SEEK_SET);
+		fwrite(&a, sizeof(Account), 1, f);
+		fclose(f);
+	}
+}
 void modify_account(Account* a) {
 	printf("Enter to continue...\n");  getchar();
 	printf("Username: "); fgets(a->username, 50, stdin); a->username[strcspn(a->username, "\n")] = 0;
@@ -29,7 +41,7 @@ void register_student_account(Account* a) {
 	printf("Password: "); fgets(a->password, 50, stdin); a->password[strcspn(a->password, "\n")] = 0;
 	a->role = 1; 
 	a->identity = malloc(sizeof(Student));
-	modify_student((Student*)a->identity);
+	add_student((Student*)a->identity);
 }
 
 void register_librarian_account(Account* a) {

@@ -11,7 +11,7 @@ typedef struct Student {
 	double fine;
 } Student;
 
-void display_student(Student s);
+void display_student(Student* s);
 void modify_student(Student* s);
 void set_fine(Student* s, double newFine);
 void pay_fine(Student* s);
