@@ -72,9 +72,12 @@
     <ClInclude Include="LoginSystem.h">
       <Filter>Resource Files\LoginSystem</Filter>
     </ClInclude>
+    <ClInclude Include="AdminMenu.h">
+      <Filter>Resource Files\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test.c">
+    <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Book.c">
@@ -103,6 +106,9 @@
     </ClCompile>
     <ClCompile Include="LoginSystem.c">
       <Filter>Resource Files\LoginSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="AdminMenu.c">
+      <Filter>Resource Files\Menu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

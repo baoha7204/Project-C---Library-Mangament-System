@@ -16,17 +16,15 @@ void librarian_menu() {
 		printf("5. Display issued books.\n");
 		printf("6. Search book.\n");
 		printf("7. Modify book.\n");
-		printf("8. Add student.\n");
-		printf("9. Delete student.\n");
-		printf("10. Display all students.\n");
-		printf("11. Search student.\n");
-		printf("12. Modify student.\n");
-		printf("13. Issue book.\n");
-		printf("14. Return book.\n");
-		printf("15. Charge fine.\n");
-		printf("16. Exit.");
+		printf("8. Display all students.\n");
+		printf("9. Search student.\n");
+		printf("10. Issue book.\n");
+		printf("11. Return book.\n");
+		printf("12. Charge fine.\n");
+		printf("0. Return login.\n");
 		printf("Please select your choice: ");
-		int lua_chon; scanf("%d", &lua_chon);
+		int lua_chon; scanf_s("%d", &lua_chon);
+		printf("Enter to continue..."); while (getchar() != '\n');
 		system("cls");
 		switch (lua_chon) {
 		case 1:
@@ -51,33 +49,26 @@ void librarian_menu() {
 			modify_Book();
 			break;
 		case 8:
-			add_student();
-			break;
-		case 9:
-			delete_student();
-			break;
-		case 10:
 			display_all_students();
 			break;
-		case 11:
+		case 9:
 			search_student();
 			break;
-		case 12:
-			modify_Student();
-			break;
-		case 13:
+		case 10:
 			issue_book();
 			break;
-		case 14:
+		case 11:
 			return_book();
 			break;
-		case 15:
+		case 12:
 			charge_fine();
 			break;
-		case 16:
+		case 0:
 			return;
 		default:
 			printf("Not found the choice! Please enter again.\n");
 		}
+		printf("Enter to continue...");
+		while (getchar() != '\n' && getchar() != EOF);
 	}
 }

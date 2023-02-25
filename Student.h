@@ -11,10 +11,11 @@ typedef struct Student {
 	double fine;
 } Student;
 
-void display_student(Student* s);
+void display_student(Student s);
 void modify_student(Student* s);
 void set_fine(Student* s, double newFine);
 void pay_fine(Student* s);
-void request_book_issue(Student* s);
+void request_book_issue(Student* s); 
+void return_book_issue(Student* s);
 
 #endif

@@ -1,7 +1,24 @@
-﻿  LoginSystem.c
-C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(72,56): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[50]'
-C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(72,38): warning C4024: 'fgets': different types for formal and actual parameter 1
-C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(73,56): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[50]'
-C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(73,38): warning C4024: 'fgets': different types for formal and actual parameter 1
-C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(75,60): warning C4047: '!=': 'size_t' differs in levels of indirection from 'void *'
+﻿  AccountDatabase.c
+  Librarian.c
+C:\Users\Admin\source\repos\Library_Management_System\Librarian.c(14,48): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[10]'
+C:\Users\Admin\source\repos\Library_Management_System\Librarian.c(14,35): warning C4024: 'fgets': different types for formal and actual parameter 1
+C:\Users\Admin\source\repos\Library_Management_System\Librarian.c(24,66): warning C4047: '!=': 'size_t' differs in levels of indirection from 'void *'
+C:\Users\Admin\source\repos\Library_Management_System\Librarian.c(47,48): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[10]'
+C:\Users\Admin\source\repos\Library_Management_System\Librarian.c(47,35): warning C4024: 'fgets': different types for formal and actual parameter 1
+C:\Users\Admin\source\repos\Library_Management_System\Librarian.c(57,66): warning C4047: '!=': 'size_t' differs in levels of indirection from 'void *'
+C:\Users\Admin\source\repos\Library_Management_System\Librarian.c(80,48): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[10]'
+C:\Users\Admin\source\repos\Library_Management_System\Librarian.c(80,35): warning C4024: 'fgets': different types for formal and actual parameter 1
+C:\Users\Admin\source\repos\Library_Management_System\Librarian.c(90,66): warning C4047: '!=': 'size_t' differs in levels of indirection from 'void *'
+  LoginSystem.c
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(39,56): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[50]'
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(39,38): warning C4024: 'fgets': different types for formal and actual parameter 1
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(40,56): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[50]'
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(40,38): warning C4024: 'fgets': different types for formal and actual parameter 1
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(43,61): warning C4047: '!=': 'size_t' differs in levels of indirection from 'void *'
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(64,56): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[50]'
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(64,38): warning C4024: 'fgets': different types for formal and actual parameter 1
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(65,56): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[50]'
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(65,38): warning C4024: 'fgets': different types for formal and actual parameter 1
+C:\Users\Admin\source\repos\Library_Management_System\LoginSystem.c(68,68): warning C4047: '!=': 'size_t' differs in levels of indirection from 'void *'
+  Generating Code...
   Library_Management_System.vcxproj -> C:\Users\Admin\source\repos\Library_Management_System\x64\Debug\Library_Management_System.exe

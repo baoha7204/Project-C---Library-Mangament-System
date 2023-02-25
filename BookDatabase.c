@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 #include "Book.h"
 #include "define.h"
 #include "BookDatabase.h"
@@ -26,7 +28,7 @@ void delete_book() {
 	do {
 		long long searching_ISBN;
 		int found = 0;
-		printf("Enter the ISBN: "); scanf("%lld", &searching_ISBN);
+		printf("Enter the ISBN: "); scanf_s("%lld", &searching_ISBN);
 		// Create a temporary file (tmp file), write all the record of Book except the deleting one, then replace temp file with Book.dat
 		FILE* f = fopen(BOOK_DIR, "r");
 		FILE* f_tmp = fopen(TEMP_DIR, "w");
@@ -38,8 +40,16 @@ void delete_book() {
 			Book searching_book;
 			while (fread(&searching_book, sizeof(Book), 1, f) != NULL) {
 				if (searching_book.ISBN == searching_ISBN) {
-					found = 1;
-					printf("A book with requested ISBN has been found and deleted.\n");
+					if (searching_book.status == 2) {
+						printf("The book is currently issued. Cannot delete!\n");
+						fclose(f);
+						fclose(f_tmp);
+						return;
+					}
+					else {
+						found = 1;
+						printf("The book with requested ISBN has been found and deleted.\n");
+					}
 				}
 				else {
 					fwrite(&searching_book, sizeof(Book), 1, f_tmp);
@@ -123,7 +133,7 @@ void search_book() {
 	do {
 		long long searching_ISBN;
 		int found = 0;
-		printf("Enter the ISBN: "); scanf("%lld", &searching_ISBN);
+		printf("Enter the ISBN: "); scanf_s("%lld", &searching_ISBN);
 		// Look for matching ISBN in Book database
 		FILE* f = fopen(BOOK_DIR, "r+");
 		if (f == NULL) {
@@ -152,7 +162,7 @@ void modify_Book() {
 	do {
 		long long modifying_ISBN;
 		int found = 0;
-		printf("Enter the ISBN: "); scanf("%lld", &modifying_ISBN);
+		printf("Enter the ISBN: "); scanf_s("%lld", &modifying_ISBN);
 		// Modify book in Book database
 		FILE* f = fopen(BOOK_DIR, "r+");
 		if (f == NULL) {

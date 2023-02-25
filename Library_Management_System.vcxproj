@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="Account.h" />
     <ClInclude Include="AccountDatabase.h" />
+    <ClInclude Include="AdminMenu.h" />
     <ClInclude Include="Book.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="define.h" />
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AccountDatabase.c" />
+    <ClCompile Include="AdminMenu.c" />
     <ClCompile Include="Book.c" />
     <ClCompile Include="BookDatabase.c" />
     <ClCompile Include="Librarian.c" />
@@ -150,7 +152,7 @@
     <ClCompile Include="Student.c" />
     <ClCompile Include="StudentDatabase.c" />
     <ClCompile Include="StudentMenu.c" />
-    <ClCompile Include="test.c" />
+    <ClCompile Include="main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

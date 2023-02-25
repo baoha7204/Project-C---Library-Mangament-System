@@ -1,112 +1,115 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 #include "define.h"
 #include "Student.h"
+#include "AccountDatabase.h"
 #include "Librarian.h"
 
-void modify_librarian(Librarian* lb) {
-	printf("Enter to continue...\n");  getchar();
-	printf("Name: "); fgets(lb->name, 50, stdin); lb->name[strcspn(lb->name, "\n")] = 0; // delete '\n' in the end
-	printf("ID: "); fgets(lb->ID, 10, stdin); lb->ID[strcspn(lb->ID, "\n")] = 0;
-	printf("Date of birth:\nDay: "); scanf("%d", &lb->date_Of_Birth.day);
-	printf("Month: "); scanf("%d", &lb->date_Of_Birth.month);
-	printf("Year: "); scanf("%d", &lb->date_Of_Birth.year);
-}
-
 void issue_book() {
-	char searching_ID[10];
-	int found = 0;
-	printf("Enter the ID: "); fgets(&searching_ID, 10, stdin); searching_ID[strcspn(searching_ID, "\n")] = 0;
-	// search in Student.dat
-	FILE* f = fopen(STUDENT_DIR, "r+");
-	if (f == NULL) {
-		fprintf(stderr, "Error opening file.");
-		exit(EXIT_FAILURE);
-	}
-	else {
-		// check valid student
-		Student searching_student;
-		while (fread(&searching_student, sizeof(Student), 1, f) != NULL) {
-			if (strcmp(searching_student.ID, searching_ID) == 0) {
-				found = 1;
-				printf("Found student ID!\n");
-				request_book_issue(&searching_student);
-				// overwrite data in Student.dat
-				fseek(f, -1 * sizeof(Student), SEEK_CUR);
-				fwrite(&searching_student, sizeof(Student), 1, f);
-				printf("Successfully update!\n");
+	do {
+		char searching_ID[10];
+		int found = 0;
+		printf("Enter the ID: "); fgets(&searching_ID, 10, stdin); searching_ID[strcspn(searching_ID, "\n")] = 0;
+		// Look for matching ID in StudentAccount.dat
+		FILE* f = fopen(STUDENTACCOUNT_DIR, "r+");
+		if (f == NULL) {
+			fprintf(stderr, "Error opening file.");
+			exit(EXIT_FAILURE);
+		}
+		else {
+			// check valid student
+			StudentAccount searching;
+			while (fread(&searching, sizeof(StudentAccount), 1, f) != NULL) {
+				if (strcmp(searching.identity.ID, searching_ID) == 0) {
+					found = 1;
+					printf("Found student ID!\n");
+					request_book_issue(&searching.identity);
+					// overwrite data in StudentAccount.dat
+					fseek(f, -1 * sizeof(StudentAccount), SEEK_CUR);
+					fwrite(&searching, sizeof(StudentAccount), 1, f);
+				}
 			}
+			if (!found) {
+				printf("Invalid ID.\n");
+			}
+			fclose(f);
 		}
-		if (!found) {
-			printf("Invalid ID.\n");
-		}
-	}
+		printf("Issue more book (y/n)? "); while (getchar() != '\n');
+	} while (tolower(getchar()) == 'y');
 }
 
 void return_book() {
-	char searching_ID[10];
-	int found = 0;
-	printf("Enter the ID: "); fgets(&searching_ID, 10, stdin); searching_ID[strcspn(searching_ID, "\n")] = 0;
-	// search in Student.dat
-	FILE* f = fopen(STUDENT_DIR, "r+");
-	if (f == NULL) {
-		fprintf(stderr, "Error opening file.");
-		exit(EXIT_FAILURE);
-	}
-	else {
-		// check valid student
-		Student searching_student;
-		while (fread(&searching_student, sizeof(Student), 1, f) != NULL) {
-			if (strcmp(searching_student.ID, searching_ID) == 0) {
-				found = 1;
-				printf("Found student ID!\n");
-				request_book_issue(&searching_student);
-				// overwrite data in Student.dat
-				fseek(f, -1 * sizeof(Student), SEEK_CUR);
-				fwrite(&searching_student, sizeof(Student), 1, f);
-				printf("Successfully update!\n");
+	do {
+		char searching_ID[10];
+		int found = 0;
+		printf("Enter the ID: "); fgets(&searching_ID, 10, stdin); searching_ID[strcspn(searching_ID, "\n")] = 0;
+		// search in Student.dat
+		FILE* f = fopen(STUDENTACCOUNT_DIR, "r+");
+		if (f == NULL) {
+			fprintf(stderr, "Error opening file.");
+			exit(EXIT_FAILURE);
+		}
+		else {
+			// check valid student
+			StudentAccount searching;
+			while (fread(&searching, sizeof(StudentAccount), 1, f) != NULL) {
+				if (strcmp(searching.identity.ID, searching_ID) == 0) {
+					found = 1;
+					printf("Found student ID!\n");
+					return_book_issue(&searching.identity);
+					// overwrite data in StudentAccount.dat
+					fseek(f, -1 * sizeof(StudentAccount), SEEK_CUR);
+					fwrite(&searching, sizeof(StudentAccount), 1, f);
+				}
 			}
+			if (!found) {
+				printf("Invalid ID.\n");
+			}
+			fclose(f);
 		}
-		if (!found) {
-			printf("Invalid ID.\n");
-		}
-	}
+		printf("Return more book (y/n)? "); while (getchar() != '\n');
+	} while (tolower(getchar()) == 'y');
 }
 
 void charge_fine() {
-	char searching_ID[10];
-	int found = 0;
-	printf("Enter the ID: "); fgets(&searching_ID, 10, stdin); searching_ID[strcspn(searching_ID, "\n")] = 0;
-	// search in Student.dat
-	FILE* f = fopen(STUDENT_DIR, "r+");
-	if (f == NULL) {
-		fprintf(stderr, "Error opening file.");
-		exit(EXIT_FAILURE);
-	}
-	else {
-		// check valid student
-		Student searching_student;
-		while (fread(&searching_student, sizeof(Student), 1, f) != NULL) {
-			if (strcmp(searching_student.ID, searching_ID) == 0) {
-				found = 1;
-				printf("Found student ID!\n");
-				// calculate fine
-				int days;
-				printf("Enter number of days: "); scanf("%d", &days);
-				if (days > 30) {
-					searching_student.fine = (days - 30) * 10000;
-					// overwrite data in Student.dat
-					fseek(f, -1 * sizeof(Student), SEEK_CUR);
-					fwrite(&searching_student, sizeof(Student), 1, f);
-					printf("Successfully update!\n");
-				}
-				else {
-					printf("Available for issue more.\n");
+	do {
+		char searching_ID[10];
+		int found = 0;
+		printf("Enter the ID: "); fgets(&searching_ID, 10, stdin); searching_ID[strcspn(searching_ID, "\n")] = 0;
+		// search in Student.dat
+		FILE* f = fopen(STUDENTACCOUNT_DIR, "r+");
+		if (f == NULL) {
+			fprintf(stderr, "Error opening file.");
+			exit(EXIT_FAILURE);
+		}
+		else {
+			// check valid student
+			StudentAccount searching;
+			while (fread(&searching, sizeof(StudentAccount), 1, f) != NULL) {
+				if (strcmp(searching.identity.ID, searching_ID) == 0) {
+					found = 1;
+					printf("Found student ID!\n");
+					// calculate fine
+					int days;
+					printf("Enter number of days: "); scanf_s("%d", &days);
+					if (days > 30) {
+						searching.identity.fine = (days - 30) * 10000;
+						// overwrite data in StudentAccount.dat
+						fseek(f, -1 * sizeof(StudentAccount), SEEK_CUR);
+						fwrite(&searching, sizeof(StudentAccount), 1, f);
+					}
+					else {
+						printf("Available for issue more.\n");
+					}
 				}
 			}
+			if (!found) {
+				printf("Invalid ID.\n");
+			}
+			fclose(f);
 		}
-		if (!found) {
-			printf("Invalid ID.\n");
-		}
-	}
+		printf("Charge fine more (y/n)? "); while (getchar() != '\n');
+	} while (tolower(getchar()) == 'y');
 }

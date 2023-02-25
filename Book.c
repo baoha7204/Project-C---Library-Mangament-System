@@ -16,12 +16,12 @@ void modify_book(Book* b) {
 	printf("Enter to continue...\n");  getchar();
 	printf("Title: "); fgets(b->title, 50, stdin); b->title[strcspn(b->title, "\n")] = 0;
 	printf("Author: "); fgets(b->author, 50, stdin); b->author[strcspn(b->author, "\n")] = 0;
-	printf("ISBN: "); scanf("%lld", &b->ISBN);
-	printf("Date of publication:\nDay: "); scanf("%d", &b->date_Publicaton.day);
-	printf("Month: "); scanf("%d", &b->date_Publicaton.month);
-	printf("Year: "); scanf("%d", &b->date_Publicaton.year);
+	printf("ISBN: "); scanf_s("%lld", &b->ISBN);
+	printf("Date of publication:\nDay: "); scanf_s("%d", &b->date_Publicaton.day);
+	printf("Month: "); scanf_s("%d", &b->date_Publicaton.month);
+	printf("Year: "); scanf_s("%d", &b->date_Publicaton.year);
 	do {
-		printf("Status (1 = available, 2 = issued): "); scanf("%d", &b->status);
+		printf("Status (1 = available, 2 = issued): "); scanf_s("%d", &b->status);
 	} while (b->status != 1 && b->status != 2);
 }
 
